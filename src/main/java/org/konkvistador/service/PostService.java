@@ -3,9 +3,11 @@ package org.konkvistador.service;
 import org.konkvistador.exeption.NotFoundException;
 import org.konkvistador.model.Post;
 import org.konkvistador.repository.PostRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PostService {
     private final PostRepository repository;
 
