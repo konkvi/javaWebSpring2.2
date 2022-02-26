@@ -3,6 +3,7 @@ package org.konkvistador.servlet;
 import org.konkvistador.controller.PostController;
 import org.konkvistador.repository.PostRepository;
 import org.konkvistador.service.PostService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +21,13 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostController(service);
+        // final var repository = new PostRepository();
+        // final var service = new PostService(repository);
+        // controller = new PostController(service);
+
+        final var context = new AnnotationConfigApplicationContext("org.konkvistador");
+        this.controller = (PostController)context.getBean("postController");
+        final var service = context.getBean("postService");
     }
 
     //выносим отдельный метод с GET

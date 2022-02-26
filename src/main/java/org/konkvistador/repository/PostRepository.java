@@ -1,9 +1,11 @@
 package org.konkvistador.repository;
 
 import org.konkvistador.model.Post;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class PostRepository {
 
     private Map<Long, Post> posts = new HashMap<>();
