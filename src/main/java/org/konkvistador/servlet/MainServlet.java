@@ -1,5 +1,6 @@
 package org.konkvistador.servlet;
 
+import org.konkvistador.config.JavaConfig;
 import org.konkvistador.controller.PostController;
 import org.konkvistador.repository.PostRepository;
 import org.konkvistador.service.PostService;
@@ -24,8 +25,7 @@ public class MainServlet extends HttpServlet {
         // final var repository = new PostRepository();
         // final var service = new PostService(repository);
         // controller = new PostController(service);
-
-        final var context = new AnnotationConfigApplicationContext("org.konkvistador");
+        final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
         this.controller = (PostController)context.getBean("postController");
         final var service = context.getBean("postService");
     }
