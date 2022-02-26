@@ -1,7 +1,6 @@
 package org.konkvistador.repository;
 
 import org.konkvistador.model.Post;
-
 import java.util.*;
 
 public class PostRepository {
